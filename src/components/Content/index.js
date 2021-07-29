@@ -11,12 +11,12 @@ const Content = () => (
     <PrivateRoute path="/dashboard" component={Dashboard}>
       <Dashboard />
     </PrivateRoute>
-    <Route path="/leaderboard">
+    <PrivateRoute path="/leaderboard">
       <Leaderboard />
-    </Route>
-    <Route path="/newQ">
+    </PrivateRoute>
+    <PrivateRoute path="/newQ">
       <NewQuestion />
-    </Route>
+    </PrivateRoute>
     <Route>
       <NotFound />
     </Route>
