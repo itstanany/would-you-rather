@@ -4,12 +4,12 @@ import { constants } from "./users.constants"
 const getUsers = () => {
   return async (dispatch) => {
     dispatch({
-      type: constants.GET_USER_REQUEST
+      type: constants.GET_USERS_REQUEST
     });
     const users = await _getUsers();
     if (users) {
       dispatch({
-        type: constants.GET_USER_SUCCESS,
+        type: constants.GET_USERS_SUCCESS,
         payload: {
           users
         },
@@ -17,7 +17,7 @@ const getUsers = () => {
       return
     }
     dispatch({
-      type: constants.GET_USER_FAILURE,
+      type: constants.GET_USERS_FAILURE,
       payload: {
         error: 'Failed to fetch users',
       }
