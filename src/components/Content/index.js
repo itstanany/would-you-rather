@@ -11,16 +11,16 @@ const Content = () => (
     <PrivateRoute path="/dashboard" component={Dashboard}>
       <Dashboard />
     </PrivateRoute>
-    <PrivateRoute path="/leaderboard">
+    <PrivateRoute path="/leaderboard" component={Leaderboard}>
       <Leaderboard />
     </PrivateRoute>
-    <PrivateRoute path="/newQ">
-      <NewQuestion />
+    <PrivateRoute path="/newQ" component={NewQuestion}>
+      {NewQuestion}
     </PrivateRoute>
     <Route>
       <NotFound />
     </Route>
-  </Switch>
+  </Switch >
 );
 
 export default Content;
