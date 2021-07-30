@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Button, Checkbox, Form, Item } from "semantic-ui-react";
 import { saveAnswer } from "../../store";
 import { questionsSelector, usersSelector } from '../../utils'
@@ -12,7 +12,7 @@ const QuestionDetail = () => {
   const { users } = useSelector(usersSelector);
   const [checkedItem, setCheckedItem] = useState('');
   const question = questions[id];
-  const user = users[question?.author || {}];
+  const user = (users[question?.author] || {});
 
   const handleChangeCheck = useCallback((e, { value }) => {
     setCheckedItem(value);
