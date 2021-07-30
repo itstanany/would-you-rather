@@ -4,6 +4,7 @@ import Leaderboard from "../Leaderboard"
 import NewQuestion from "../NewQuestion"
 import NotFound from "../NotFound"
 import PrivateRoute from "../PrivateRoute"
+import QuestionDetail from "../QuestionDetail"
 
 const Content = () => (
   <Switch>
@@ -15,7 +16,10 @@ const Content = () => (
       <Leaderboard />
     </PrivateRoute>
     <PrivateRoute path="/newQ" /* component={NewQuestion} */>
-      {NewQuestion}
+      <NewQuestion />
+    </PrivateRoute>
+    <PrivateRoute path="/q/:id">
+      <QuestionDetail />
     </PrivateRoute>
     <Route>
       <NotFound />
