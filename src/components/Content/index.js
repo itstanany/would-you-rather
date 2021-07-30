@@ -8,13 +8,13 @@ import PrivateRoute from "../PrivateRoute"
 const Content = () => (
   <Switch>
     <Redirect exact from="/" to="/dashboard" />
-    <PrivateRoute path="/dashboard" component={Dashboard}>
+    <PrivateRoute path="/dashboard"/*  component={Dashboard} */>
       <Dashboard />
     </PrivateRoute>
-    <PrivateRoute path="/leaderboard" component={Leaderboard}>
+    <PrivateRoute path="/leaderboard"/*  component={Leaderboard} */>
       <Leaderboard />
     </PrivateRoute>
-    <PrivateRoute path="/newQ" component={NewQuestion}>
+    <PrivateRoute path="/newQ" /* component={NewQuestion} */>
       {NewQuestion}
     </PrivateRoute>
     <Route>
