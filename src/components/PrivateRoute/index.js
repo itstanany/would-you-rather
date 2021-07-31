@@ -9,7 +9,7 @@ const PrivateRoute = (props) => {
       ? (<Route path={props.path} component={props.component}>
         {props.children}
       </Route>)
-      : <Redirect to={`/login?from=${props.path}`} />
+      : <Redirect to={`/login?from=${props.location.pathname}`} />
   )
 }
 export default PrivateRoute;
