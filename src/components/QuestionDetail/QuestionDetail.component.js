@@ -96,7 +96,7 @@ const QuestionDetailComponent = ({
                   </Form.Field>
                 </Form>
               </Item.Description>
-              <Button onClick={submitAnswer}>
+              <Button onClick={submitAnswer} disabled={!checkedItem}>
                 Answer
               </Button>
             </>

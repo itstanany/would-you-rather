@@ -3,16 +3,22 @@ import {
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { saveAnswer } from '../../store';
+import { getAllQ, saveAnswer } from '../../store';
 import { questionsSelector, usersSelector, userSelector } from '../../utils';
 import { NotFound } from '../NotFound';
 import { QuestionDetailComponent } from './QuestionDetail.component';
 
 const QuestionDetail = () => {
   const { question_id: id } = useParams();
-  const { questions } = useSelector(questionsSelector);
-  const question = useRef(questions[id]);
+  const questions = useSelector(questionsSelector);
+  const question = useRef(questions?.questions[id]);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (Object.keys(questions?.questions)?.length < 1) {
+      dispatch(getAllQ());
+    }
+  }, []);
 
   const { users } = useSelector(usersSelector);
   const {
@@ -23,10 +29,10 @@ const QuestionDetail = () => {
   const [totalVotes, setTotalVotes] = useState((
     question?.current?.optionOne?.votes?.length + question?.current?.optionTwo?.votes?.length));
   useEffect(() => {
-    question.current = questions[id];
+    question.current = questions?.questions[id];
     setTotalVotes((
       question?.current?.optionOne?.votes?.length + question?.current?.optionTwo?.votes?.length));
-  }, [questions, id]);
+  }, [questions.questions, id]);
   useEffect(() => {
     authorUser.current = users[question?.current?.author] || {};
   }, [users, question]);
@@ -39,7 +45,6 @@ const QuestionDetail = () => {
     e.preventDefault();
     dispatch(saveAnswer({ answer: checkedItem, qId: id }));
   }, [checkedItem, id, dispatch]);
-
   return (
     question.current
       ? (
@@ -54,7 +59,7 @@ const QuestionDetail = () => {
           totalVotes={totalVotes}
         />
       )
-      : <NotFound />
+      : questions.state === 'full' && <NotFound />
   );
 };
 
