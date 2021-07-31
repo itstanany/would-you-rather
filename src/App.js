@@ -6,12 +6,10 @@ import { Login } from './components/Login';
 
 function App() {
   return (
-    <div className="myContainer">
-      <Switch>
-        <Route path="/login" component={Login} />
-        <Page />
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/login" component={Login} />
+      <Page />
+    </Switch>
   );
 }
 
