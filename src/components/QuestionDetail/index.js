@@ -16,7 +16,7 @@ const QuestionDetail = () => {
   const [checkedItem, setCheckedItem] = useState('');
   const question = useRef(questions[id]);
   const authorUser = useRef(users[question?.author] || {});
-  const [totalVotes, setTotalVotes] = useState(question.current.optionOne.votes.length + question.current.optionTwo.votes.length);
+  const [totalVotes, setTotalVotes] = useState(question?.current?.optionOne?.votes?.length + question?.current?.optionTwo?.votes?.length);
 
   useEffect(() => {
     question.current = questions[id];
