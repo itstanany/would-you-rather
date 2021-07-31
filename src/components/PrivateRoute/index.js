@@ -3,7 +3,6 @@ import { isLoggedIn } from "./utils"
 
 const PrivateRoute = (props) => {
   const condition = isLoggedIn();
-  console.log('inside private route and props.path is', props);
   return (
     condition
       ? (<Route path={props.path} component={props.component}>
