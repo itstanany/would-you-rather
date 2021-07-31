@@ -19,6 +19,7 @@ const QuestionDetail = () => {
   const [totalVotes, setTotalVotes] = useState(question?.current?.optionOne?.votes?.length + question?.current?.optionTwo?.votes?.length);
   useEffect(() => {
     question.current = questions[id];
+    setTotalVotes(question?.current?.optionOne?.votes?.length + question?.current?.optionTwo?.votes?.length)
   }, [questions, id]);
   useEffect(() => {
     authorUser.current = users[question?.current?.author] || {};
@@ -32,10 +33,6 @@ const QuestionDetail = () => {
     e.preventDefault();
     dispatch(saveAnswer({ answer: checkedItem, qId: id }))
   }, [checkedItem, id, dispatch]);
-
-  useEffect(() => {
-    setTotalVotes(question?.current?.optionOne?.votes?.length + question?.current?.optionTwo?.votes?.length)
-  }, [question]);
 
   return (
     <QuestionDetailComponent
