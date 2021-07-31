@@ -7,7 +7,7 @@ const QuestionsView = ({ qIds }) => {
   const { questions } = useSelector(questionsSelector);
   const { users } = useSelector(usersSelector);
   return (
-    <Item.Group>
+    <Item.Group divided>
       {
         qIds.map((qId) => (
           <QuestionCard
