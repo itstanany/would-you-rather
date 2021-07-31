@@ -1,10 +1,10 @@
-import { Redirect, Route, Switch } from "react-router-dom"
-import Dashboard from "../Dashboard"
-import Leaderboard from "../Leaderboard"
-import NewQuestion from "../NewQuestion"
-import NotFound from "../NotFound"
-import PrivateRoute from "../PrivateRoute"
-import QuestionDetail from "../QuestionDetail"
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { Dashboard } from '../Dashboard';
+import { Leaderboard } from '../Leaderboard';
+import { NewQuestion } from '../NewQuestion';
+import { NotFound } from '../NotFound';
+import { PrivateRoute } from '../PrivateRoute';
+import { QuestionDetail } from '../QuestionDetail';
 
 const Content = () => (
   <Switch>
@@ -15,7 +15,7 @@ const Content = () => (
     <PrivateRoute path="/leaderboard"/*  component={Leaderboard} */>
       <Leaderboard />
     </PrivateRoute>
-    <PrivateRoute path="/newQ" /* component={NewQuestion} */>
+    <PrivateRoute path="/newQ">
       <NewQuestion />
     </PrivateRoute>
     <PrivateRoute path="/questions/:question_id">
@@ -24,11 +24,10 @@ const Content = () => (
     <Route>
       <NotFound />
     </Route>
-  </Switch >
+  </Switch>
 );
 
 export default Content;
 export {
-  Content
-}
-
+  Content,
+};
