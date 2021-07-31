@@ -33,6 +33,11 @@ const QuestionDetail = () => {
     e.preventDefault();
     dispatch(saveAnswer({ answer: checkedItem, qId: id }))
   }, [checkedItem, id, dispatch]);
+
+  useEffect(() => {
+    setTotalVotes(question?.current?.optionOne?.votes?.length + question?.current?.optionTwo?.votes?.length)
+  }, [question]);
+
   return (
     <QuestionDetailComponent
       question={question.current}
