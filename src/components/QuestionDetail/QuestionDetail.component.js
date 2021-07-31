@@ -19,7 +19,7 @@ const QuestionDetailComponent = ({
                   }, asks Would You Rather &#63;
                 </Item.Header>
                 <Item.Description>
-                  <Progress percent={((question.optionOne.votes.length / totalVotes) * 100)} progress>
+                  <Progress percent={Math.round((question.optionOne.votes.length / totalVotes) * 100)} progress>
                     {
                       currentUser?.answers?.[id] === 'optionOne'
                         ? question?.optionOne?.text + ', You Answer!'
@@ -27,7 +27,7 @@ const QuestionDetailComponent = ({
                     }
                   </Progress>
                   <hr />
-                  <Progress percent={((question?.optionTwo?.votes.length / totalVotes) * 100)} progress>
+                  <Progress percent={Math.round((question?.optionTwo?.votes.length / totalVotes) * 100)} progress>
                     {
                       currentUser?.answers?.[id] === 'optionTwo'
                         ? question?.optionTwo?.text + ', Your Answer!'
