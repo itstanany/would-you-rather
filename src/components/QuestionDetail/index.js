@@ -17,8 +17,6 @@ const QuestionDetail = () => {
   const question = useRef(questions[id]);
   const authorUser = useRef(users[question?.current?.author] || {});
   const [totalVotes, setTotalVotes] = useState(question?.current?.optionOne?.votes?.length + question?.current?.optionTwo?.votes?.length);
-  console.log('authorUser.current');
-  console.log(authorUser.current);
   useEffect(() => {
     question.current = questions[id];
   }, [questions, id]);
@@ -45,9 +43,6 @@ const QuestionDetail = () => {
       submitAnswer={submitAnswer}
       handleChangeCheck={handleChangeCheck}
       id={id}
-      dispatch={dispatch}
-      questions={questions}
-      users={users}
       currentUser={currentUser}
       checkedItem={checkedItem}
       user={authorUser.current}
