@@ -3,18 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { saveAnswer } from "../../store";
 import { questionsSelector, usersSelector, userSelector } from '../../utils'
-import QuestionDetailComponent from "./QuestionDetail.component";
+import { NotFound } from "../NotFound";
+import { QuestionDetailComponent } from "./QuestionDetail.component";
 
 const QuestionDetail = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
   const { questions } = useSelector(questionsSelector);
+  const question = useRef(questions[id]);
+  const dispatch = useDispatch();
+
   const { users } = useSelector(usersSelector);
   const {
     user: currentUser
   } = useSelector(userSelector);
   const [checkedItem, setCheckedItem] = useState('');
-  const question = useRef(questions[id]);
   const authorUser = useRef(users[question?.current?.author] || {});
   const [totalVotes, setTotalVotes] = useState(question?.current?.optionOne?.votes?.length + question?.current?.optionTwo?.votes?.length);
   useEffect(() => {
@@ -35,16 +37,18 @@ const QuestionDetail = () => {
   }, [checkedItem, id, dispatch]);
 
   return (
-    <QuestionDetailComponent
-      question={question.current}
-      submitAnswer={submitAnswer}
-      handleChangeCheck={handleChangeCheck}
-      id={id}
-      currentUser={currentUser}
-      checkedItem={checkedItem}
-      user={authorUser.current}
-      totalVotes={totalVotes}
-    />
+    question.current
+      ? <QuestionDetailComponent
+        question={question.current}
+        submitAnswer={submitAnswer}
+        handleChangeCheck={handleChangeCheck}
+        id={id}
+        currentUser={currentUser}
+        checkedItem={checkedItem}
+        user={authorUser.current}
+        totalVotes={totalVotes}
+      />
+      : <NotFound />
   );
 }
 
