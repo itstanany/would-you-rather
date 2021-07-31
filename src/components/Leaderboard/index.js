@@ -13,6 +13,7 @@ const Leaderboard = () => {
           <LeaderCard
             user={user}
             index={index}
+            key={user.id}
           />))
       }
     </div>
