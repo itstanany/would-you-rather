@@ -5,6 +5,10 @@ const QuestionDetailComponent = ({
   id, currentUser, checkedItem, question, user, totalVotes,
   handleChangeCheck, submitAnswer,
 }) => {
+
+  console.log(currentUser?.answers?.[id]);
+  console.log(currentUser);
+
   return (
     <Item>
       <Item.Image size='small' src={user?.avatarUrl} />
@@ -22,18 +26,19 @@ const QuestionDetailComponent = ({
                   <Progress percent={Math.round((question.optionOne.votes.length / totalVotes) * 100)} progress>
                     {
                       currentUser?.answers?.[id] === 'optionOne'
-                        ? question?.optionOne?.text + ', You Answer!'
-                        : question?.optionOne?.text
+                        ? ` ${question?.optionOne?.text} ^*^ #${question?.optionOne?.votes?.length} votes ^|*|^  You Answer!`
+                        : ` ${question?.optionOne?.text} ^*^ #${question?.optionOne?.votes?.length} votes.`
                     }
                   </Progress>
                   <hr />
                   <Progress percent={Math.round((question?.optionTwo?.votes.length / totalVotes) * 100)} progress>
                     {
                       currentUser?.answers?.[id] === 'optionTwo'
-                        ? question?.optionTwo?.text + ', Your Answer!'
-                        : question?.optionTwo?.text
+                        ? `${question?.optionTwo?.text} ^*^ #${question?.optionTwo?.votes?.length} votes ^|*|^  You Answer!`
+                        : `${question?.optionTwo?.text} ^*^ #${question?.optionTwo?.votes?.length} votes.`
                     }
-                  </Progress>            </Item.Description>
+                  </Progress>
+                </Item.Description>
                 <Link to="/dashboard">
                   <Button>
                     Back to Dashboard
