@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useLocation, useParams } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 import { useQuery } from '../../customHooks';
 import { getUsers } from '../../store';
 import { login } from '../../store/user';
@@ -20,11 +20,13 @@ const Login = () => {
   }, [setSelectedUser, users, dispatch]);
 
   useEffect(() => {
-    (user.state === 'authenticated') && history.push({ pathname: (fromPathName || '/dashboard') });
-  }, [user.state, history, fromPathName])
+    if (user.state === 'authenticated') {
+      history.push({ pathname: (fromPathName || '/dashboard') });
+    }
+  }, [user.state, history, fromPathName]);
 
   useEffect(() => {
-    dispatch(getUsers())
+    dispatch(getUsers());
   }, []);
 
   return (
@@ -38,14 +40,15 @@ const Login = () => {
           Object.keys(users).map((usId) => (
             <option key={usId} value={users[usId]?.id}>
               {users[usId]?.name}
-            </option>))
+            </option>
+          ))
         }
       </select>
     </>
-  )
+  );
 };
 
 export default Login;
 export {
-  Login
-}
+  Login,
+};
