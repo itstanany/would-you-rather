@@ -1,10 +1,11 @@
-import { constants } from "./user.constants";
+import { userConstants } from './user.constants';
 
 const states = {
   authenticated: 'authenticated',
   unauthenticated: 'unauthenticated',
   pending: 'pending',
-}
+  reset: 'reset',
+};
 
 const initialState = {
   user: {
@@ -18,98 +19,95 @@ const initialState = {
   error: null,
   // authenticate: false,
   state: states.unauthenticated,
-}
+};
 
-
-const reducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   let newState;
   const { type = '', payload = {} } = action;
   switch (state.state) {
     case states.unauthenticated:
-      if (type === constants.USER_LOGIN_REQUEST) {
-        console.log('inside login request')
+    case states.reset:
+      if (type === userConstants.USER_LOGIN_REQUEST) {
         newState = {
           ...state,
           state: states.pending,
           loading: true,
-        }
+        };
         return newState;
       }
-      break
+      break;
     case states.pending:
       switch (type) {
-        case constants.USER_LOGIN_SUCCESS:
+        case userConstants.USER_LOGIN_SUCCESS:
           newState = {
             ...state,
             loading: false,
             state: states.authenticated,
             user: payload.user,
-          }
-          return newState;
-        case constants.USER_LOGIN_FAILURE:
-          newState = {
-            ...state,
-            loading: false,
-            state: states.unauthenticated,
-            error: payload.error
-          }
-          return newState;
-        case constants.USER_LOGOUT_SUCCESS:
-          newState = {
-            ...state,
-            loading: false,
-            state: states.unauthenticated,
-            user: initialState.user
           };
           return newState;
-        case constants.USER_LOGOUT_FAILURE:
+        case userConstants.USER_LOGIN_FAILURE:
+          newState = {
+            ...state,
+            loading: false,
+            state: states.unauthenticated,
+            error: payload.error,
+          };
+          return newState;
+        case userConstants.USER_LOGOUT_SUCCESS:
+          newState = {
+            ...state,
+            loading: false,
+            state: states.unauthenticated,
+            user: initialState.user,
+          };
+          return newState;
+        case userConstants.USER_LOGOUT_FAILURE:
           newState = {
             ...state,
             loading: false,
             error: payload.error,
             state: states.authenticated,
-          }
-          return newState
+          };
+          return newState;
         default:
           return state;
       }
 
     case states.authenticated:
-      if (type === constants.USER_LOGOUT_REQUEST) {
+      if (type === userConstants.USER_LOGOUT_REQUEST) {
         newState = {
           ...state,
           loading: true,
           state: states.pending,
-        }
-        return newState
+        };
+        return newState;
       }
-      break
+      if (type === userConstants.RESET) {
+        newState = {
+          // ...initialState,
+          ...state,
+          state: states.reset,
+        };
+        return newState;
+      }
+      if (type === userConstants.USER_UPDATE) {
+        newState = {
+          ...state,
+          loading: false,
+          state: states.authenticated,
+          user: payload.user,
+        };
+        return newState;
+      }
+      break;
     default:
       return state;
   }
   return state;
-}
+};
 
 export {
-  reducer
-}
-
-
- // if (type === constants.USER_LOGIN_SUCCESS) {
-      //   newState = {
-      //     ...state,
-      //     loading: false,
-      //     state: states.authenticated,
-      //     user: payload.user,
-      //   }
-      //   return newState;
-      // }
-      // if (type === constants.USER_LOGIN_FAILURE) {
-      //   newState = {
-      //     ...state,
-      //     loading: false,
-      //     state: states.unauthenticated,
-      //     error: payload.error
-      //   }
-      //   return newState;
-      // }
+  userReducer,
+  states,
+};

@@ -1,21 +1,28 @@
-import { constants } from "./user.constants"
+import { userConstants } from './user.constants';
 
 const login = ({ users, userId }) => async (dispatch) => {
-  console.log('inside login action creator');
-  console.log(users);
-  console.log(userId)
   dispatch({
-    type: constants.USER_LOGIN_REQUEST
+    type: userConstants.USER_LOGIN_REQUEST,
   });
 
   dispatch({
-    type: constants.USER_LOGIN_SUCCESS,
+    type: userConstants.USER_LOGIN_SUCCESS,
     payload: {
-      user: users[userId]
+      user: users[userId],
     },
   });
-}
+};
+
+const logOut = () => async (dispatch) => {
+  dispatch({
+    type: userConstants.USER_LOGOUT_REQUEST,
+  });
+  dispatch({
+    type: userConstants.USER_LOGOUT_SUCCESS,
+  });
+};
 
 export {
   login,
+  logOut,
 };
