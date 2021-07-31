@@ -1,4 +1,7 @@
 import { useSelector } from 'react-redux';
+import {
+  Card,
+} from 'semantic-ui-react';
 import { usersSelector } from '../../utils';
 import { LeaderCard } from './LeaderCard';
 import { getSortedUsers } from './utils';
@@ -7,7 +10,7 @@ const Leaderboard = () => {
   const { users } = useSelector(usersSelector);
   const sortedUser = getSortedUsers(users);
   return (
-    <div style={{ display: 'flex' }}>
+    <Card.Group centered>
       {
         sortedUser.map((user, index) => (
           <LeaderCard
@@ -17,7 +20,7 @@ const Leaderboard = () => {
           />
         ))
       }
-    </div>
+    </Card.Group>
   );
 };
 
