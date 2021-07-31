@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { saveNewQ } from "../../store";
+import {
+  useCallback, useEffect, useRef, useState,
+} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { saveNewQ } from '../../store';
 import { userSelector } from '../../utils';
-import NewQuestionComponent from "./NewQuestion.component";
-
+import { NewQuestionComponent } from './NewQuestion.component';
 
 const NewQuestion = () => {
   const { user } = useSelector(userSelector);
@@ -23,19 +24,18 @@ const NewQuestion = () => {
         setOptionTwo(e.target.value);
         break;
       default:
-        return;
     }
-    return
   }, []);
 
-  const submitNewQ = useCallback((e) => {
+  const submitNewQ = useCallback(() => {
     if (!(optionOne && optionTwo)) {
+      // eslint-disable-next-line no-alert
       alert('Option One & Two are required!');
       return;
     }
     dispatch(saveNewQ({ optionOneText: optionOne, optionTwoText: optionTwo, user })).then(() => {
 
-    })
+    });
   }, [optionOne, optionTwo, user, dispatch]);
 
   useEffect(() => {
@@ -45,14 +45,16 @@ const NewQuestion = () => {
   }, [user.questions, userQ, history]);
 
   return (
-    <NewQuestionComponent user={user}
+    <NewQuestionComponent
+      user={user}
       optionOne={optionOne}
       optionTwo={optionTwo}
       handleInputChange={handleInputChange}
       submitNewQ={submitNewQ}
-    />)
+    />
+  );
 };
 
 export default NewQuestion;
 
-export { NewQuestion }
+export { NewQuestion };
