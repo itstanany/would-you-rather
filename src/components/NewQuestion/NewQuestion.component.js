@@ -5,7 +5,7 @@ import {
 const NewQuestionComponent = ({
   user, optionOne, optionTwo, handleInputChange, submitNewQ,
 }) => (
-  <Card style={{ width: '400px' }}>
+  <Card style={{ width: '400px' }} centered>
     <Card.Content>
       <Image floated="right" size="tiny" src={user.avatarURL} />
       <Card.Header>
