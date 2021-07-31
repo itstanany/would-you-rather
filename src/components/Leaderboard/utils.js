@@ -2,12 +2,20 @@ const getSortedUsers = (users) => {
   /**
    * Return an array of user object sorted
    */
-  const users_data = Object.values(users);
-  users_data.map((user) => (user.totalScore = Object.keys(user.answers).length + user.questions.length));
+  // eslint-disable-next-line camelcase
+  const immutableUser = {
+    ...users,
+  };
 
-  return users_data.sort((user_a, user_b) => user_b.totalScore - user_a.totalScore);
+  const usersData = Object.values(users);
+  usersData.forEach((user) => {
+    immutableUser[user.id].totalScore = Object.keys(user.answers).length + user.questions.length;
+  });
+
+  return Object.values(immutableUser).sort((userA, userB) => userB.totalScore - userA.totalScore);
 };
 
 export {
+  // eslint-disable-next-line import/prefer-default-export
   getSortedUsers,
-}
+};
