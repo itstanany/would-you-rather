@@ -18,7 +18,7 @@ const Content = () => (
     <PrivateRoute path="/newQ" /* component={NewQuestion} */>
       <NewQuestion />
     </PrivateRoute>
-    <PrivateRoute path="/q/:id">
+    <PrivateRoute path="/questions/:question_id">
       <QuestionDetail />
     </PrivateRoute>
     <Route>
