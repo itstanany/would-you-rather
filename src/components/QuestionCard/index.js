@@ -1,11 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button, Item } from "semantic-ui-react"
 
-const description = [
-  'Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their',
-  'tiny stature, and even others for their massive size.',
-].join(' ')
-
 const QuestionCard = ({ question, user }) => {
   return (
     <Item>
