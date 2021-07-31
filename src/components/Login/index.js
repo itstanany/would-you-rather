@@ -34,11 +34,18 @@ const Login = () => {
       <h1>
         Welcome - Would You Rather?
       </h1>
-      <select value={selectedUser} onChange={handleSelectChange}>
+      <select
+        value={selectedUser}
+        onChange={handleSelectChange}
+        className="ui fluid search selection dropdown"
+      >
         <option disabled value="">Select a User</option>
         {
           Object.keys(users).map((usId) => (
-            <option key={usId} value={users[usId]?.id}>
+            <option
+              key={usId}
+              value={users[usId]?.id}
+            >
               {users[usId]?.name}
             </option>
           ))
