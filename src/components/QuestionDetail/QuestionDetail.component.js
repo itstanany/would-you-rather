@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button, Checkbox, Form, Item, Progress } from "semantic-ui-react";
 
 const QuestionDetailComponent = ({
-  id, dispatch, questions, users, currentUser, checkedItem, question, user, totalVotes,
+  id, currentUser, checkedItem, question, user, totalVotes,
   handleChangeCheck, submitAnswer,
 }) => {
   return (
