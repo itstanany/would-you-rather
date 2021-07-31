@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
-import { reducer as usersReducer } from './users/reducer';
-import { reducer as userReducer } from './user';
-import { reducer as questionsReducer } from './questions';
+import { usersReducer } from './users/users.reducer';
+import { userReducer } from './user/user.reducer';
+import { questionsReducer } from './questions/questions.reducer';
 
 const rootReducer = combineReducers({
   users: usersReducer,
   user: userReducer,
-  question: questionsReducer,
+  questions: questionsReducer,
 });
 
 export default rootReducer;
 
-export { rootReducer }
+export { rootReducer };
