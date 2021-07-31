@@ -1,18 +1,16 @@
-import Content from "../Content";
-import Footer from "../Footer";
-import Header from "../Header";
+import { Content } from '../Content';
+import { Footer } from '../Footer';
+import { Header } from '../Header';
 
-const Page = () => {
-  return (
-    <>
-      <Header />
-      <Content />
-      <Footer />
-    </>
-  )
-}
+const Page = () => (
+  <>
+    <Header />
+    <Content />
+    <Footer />
+  </>
+);
 
 export default Page;
 export {
-  Page
-}
+  Page,
+};
