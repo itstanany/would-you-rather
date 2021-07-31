@@ -15,12 +15,16 @@ const QuestionDetail = () => {
   } = useSelector(userSelector);
   const [checkedItem, setCheckedItem] = useState('');
   const question = useRef(questions[id]);
-  const user = (users[question?.author] || {});
+  const authorUser = useRef(users[question?.author] || {});
   const [totalVotes, setTotalVotes] = useState(question.current.optionOne.votes.length + question.current.optionTwo.votes.length);
 
   useEffect(() => {
     question.current = questions[id];
   }, [questions, id]);
+  useEffect(() => {
+    authorUser.current = users[question?.author] || {};
+  }, [users, question]);
+
   const handleChangeCheck = useCallback((e, { value }) => {
     setCheckedItem(value);
   }, [setCheckedItem]);
@@ -40,7 +44,7 @@ const QuestionDetail = () => {
       users={users}
       currentUser={currentUser}
       checkedItem={checkedItem}
-      user={user}
+      user={authorUser.current}
       totalVotes={totalVotes}
     />
   );
