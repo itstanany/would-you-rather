@@ -21,13 +21,17 @@ const QuestionDetailComponent = ({
                 <Item.Description>
                   <Progress percent={((question.optionOne.votes.length / totalVotes) * 100)} progress>
                     {
-                      question?.optionOne?.text
+                      currentUser?.answers?.[id] === 'optionOne'
+                        ? question?.optionOne?.text + ', You Answer!'
+                        : question?.optionOne?.text
                     }
                   </Progress>
                   <hr />
                   <Progress percent={((question?.optionTwo?.votes.length / totalVotes) * 100)} progress>
                     {
-                      question?.optionTwo?.text
+                      currentUser?.answers?.[id] === 'optionTwo'
+                        ? question?.optionTwo?.text + ', Your Answer!'
+                        : question?.optionTwo?.text
                     }
                   </Progress>            </Item.Description>
                 <Link to="/dashboard">
