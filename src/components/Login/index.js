@@ -36,7 +36,7 @@ const Login = () => {
 
   useEffect(() => {
     dispatch(getUsers());
-  }, []);
+  }, [dispatch, getUsers]);
   useEffect(() => {
     setUsersOptions(buildUserOptions({ users }));
   }, [users]);
@@ -44,7 +44,7 @@ const Login = () => {
   const handleUserSelect = useCallback((_, data) => {
     setSelectedUser(data.value);
     dispatch(login({ users, userId: data.value }));
-  }, [users]);
+  }, [users, dispatch]);
 
   return (
     <Segment>
