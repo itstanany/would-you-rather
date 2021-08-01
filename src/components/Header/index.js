@@ -37,7 +37,7 @@ const Header = () => {
           <Icon name="home" size="small" />
           Home
         </NavLink>
-        <NavLink to="/newQ" exact className="item" activeClassName="active">
+        <NavLink to="/add" exact className="item" activeClassName="active">
           <Icon name="question circle outline" size="small" />
           New Question
         </NavLink>

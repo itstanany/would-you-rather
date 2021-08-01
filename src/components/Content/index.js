@@ -15,7 +15,7 @@ const Content = () => (
     <PrivateRoute path="/leaderboard"/*  component={Leaderboard} */>
       <Leaderboard />
     </PrivateRoute>
-    <PrivateRoute path="/newQ">
+    <PrivateRoute path="/add">
       <NewQuestion />
     </PrivateRoute>
     <PrivateRoute path="/questions/:question_id">
