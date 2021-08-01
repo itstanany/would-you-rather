@@ -18,7 +18,7 @@ const QuestionDetail = () => {
     if (Object.keys(questions?.questions)?.length < 1) {
       dispatch(getAllQ());
     }
-  }, []);
+  }, [dispatch, questions.questions]);
 
   const { users } = useSelector(usersSelector);
   const {
