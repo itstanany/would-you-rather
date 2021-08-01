@@ -36,7 +36,7 @@ const Login = () => {
 
   useEffect(() => {
     dispatch(getUsers());
-  }, [dispatch, getUsers]);
+  }, [dispatch]);
   useEffect(() => {
     setUsersOptions(buildUserOptions({ users }));
   }, [users]);
