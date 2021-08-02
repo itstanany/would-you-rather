@@ -9,3 +9,5 @@ https://ahmedalima.github.io/would-you-rather
 ### `npm install`
 
 ### `npm start`
+
+change to readme
