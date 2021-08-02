@@ -1,6 +1,10 @@
 import { _getUsers } from '../../API/_DATA';
 import { usersConstants } from './users.constants';
 
+/**
+ * getUsers thunk action creator
+ * @returns Thunk Async function action creator that receive "dispatch" as an argument
+ */
 const getUsers = () => async (dispatch) => {
   let action = {
     type: '',

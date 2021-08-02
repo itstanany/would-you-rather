@@ -1,3 +1,10 @@
+/**
+ * Card of a leader
+ * Props:
+ *  user: user object
+ *  index: integer, index of leader in leaders array
+ */
+
 import {
   Card, Image, Label, Grid,
 } from 'semantic-ui-react';

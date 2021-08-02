@@ -10,6 +10,11 @@ import {
   store,
 } from '../store';
 
+/**
+ * Thunk action creator
+ * dispatch action for getting all question from API
+ * @returns Thunk function
+ */
 const getAllQ = () => async (dispatch) => {
   dispatch({
     type: questionsConstants.GET_Q_REQUEST,
@@ -24,6 +29,12 @@ const getAllQ = () => async (dispatch) => {
   });
 };
 
+/**
+ * Thunk action creator
+ * dispatch action for saving question answer into the API
+ * @param {{answer: string, qId: string }} user answer and question id
+ * @returns Thunk function
+ */
 const saveAnswer = ({ answer, qId }) => async (dispatch) => {
   const { user: { user = {} } } = store.getState();
   await _saveQuestionAnswer({ authedUser: user.id, answer, qid: qId });
@@ -36,6 +47,12 @@ const saveAnswer = ({ answer, qId }) => async (dispatch) => {
   dispatch(getAllQ());
 };
 
+/**
+ * Thunk action creator
+ * dispatch action for adding question into the API
+ * @param {{optionOneText: string, optionTwoText: string, user: user Object}}
+ * @returns Thunk function
+ */
 const saveNewQ = ({ optionOneText, optionTwoText, user }) => async (dispatch) => {
   dispatch({
     type: questionsConstants.SAVE_NEW_Q_REQUEST,

@@ -1,6 +1,8 @@
 const getSortedUsers = (users) => {
   /**
    * Return an array of user object sorted
+   * Sorted in descending order according to total score
+   * total score is number of own questions + number of answered questions
    */
   // eslint-disable-next-line camelcase
   const immutableUser = {

@@ -4,6 +4,11 @@ import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { rootReducer } from './rootReducer';
 
+/**
+ * Create redux store configuration function
+ * @param {object} preLoadedState initial state for creating redux store
+ * @returns redux store
+ */
 const configureStore = (preLoadedState) => {
   const middleWares = [thunkMiddleware];
   const middlewareEnhancer = applyMiddleware(...middleWares);
@@ -14,6 +19,5 @@ const configureStore = (preLoadedState) => {
 };
 
 export {
-  // eslint-disable-next-line import/prefer-default-export
   configureStore,
 };

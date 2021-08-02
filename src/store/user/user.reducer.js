@@ -21,6 +21,12 @@ const initialState = {
   state: states.unauthenticated,
 };
 
+/**
+ * Reducer treated as "state machine" for user state slice
+ * @param {object} state current "user" state slice of the app
+ * @param {type: string, payload: object} action dispatched action
+ * @returns new state according to action type
+ */
 const userReducer = (state = initialState, action) => {
   let newState;
   const { type = '', payload = {} } = action;

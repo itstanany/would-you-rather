@@ -1,3 +1,7 @@
+/**
+ * Presentational component for Question Detail view
+ */
+
 import { Link } from 'react-router-dom';
 import {
   Button, Checkbox, Form, Item, Progress,

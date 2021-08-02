@@ -1,3 +1,8 @@
+/**
+ * Leaderboard page
+ * It represents the users scores in an descending order
+ */
+
 import { useSelector } from 'react-redux';
 import {
   Card,

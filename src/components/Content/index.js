@@ -1,5 +1,6 @@
 /**
-
+Comoponent responsible to tender the bulj content of the page between header and footer
+It contains switch component of differnt routes(views)
  */
 
 import { Redirect, Route, Switch } from 'react-router-dom';

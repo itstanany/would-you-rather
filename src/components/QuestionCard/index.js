@@ -1,3 +1,10 @@
+/**
+ * Card to present a question
+ * props:
+ *  question: question object in the form of object returned from API
+ *  user: user object
+ */
+
 import { Link } from 'react-router-dom';
 import { Button, Item } from 'semantic-ui-react';
 

@@ -1,3 +1,9 @@
+/**
+ * Component that represents a list of questions with brief details
+ * props:
+ *  qIds: array of string ids represent ids of different books
+ */
+
 import { useSelector } from 'react-redux';
 import { Item } from 'semantic-ui-react';
 import { questionsSelector, usersSelector } from '../../utils';

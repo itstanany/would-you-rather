@@ -29,6 +29,12 @@ const initialState = {
 //   }
 // }
 
+/**
+ * Reducer treated as "state machine" for users state slice
+ * @param {object} state current "users" state slice of the app
+ * @param {type: string, payload: object} action dispatched action
+ * @returns new state according to action type
+ */
 const usersReducer = (state = initialState, action) => {
   const newState = { ...state };
   const { type } = action;

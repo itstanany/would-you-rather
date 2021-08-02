@@ -1,3 +1,8 @@
+/**
+Home page of the webiste
+It presents The answered and un answered Questions according to the logged in user
+ */
+
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Label, Menu, Tab } from 'semantic-ui-react';

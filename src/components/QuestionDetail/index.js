@@ -1,3 +1,8 @@
+/**
+ * Individual question detail component
+ * This file is the container that contains logic.
+ */
+
 import {
   useCallback, useEffect, useRef, useState,
 } from 'react';
