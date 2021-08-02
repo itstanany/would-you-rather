@@ -1,3 +1,7 @@
+/**
+
+ */
+
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Dashboard } from '../Dashboard';
 import { Leaderboard } from '../Leaderboard';

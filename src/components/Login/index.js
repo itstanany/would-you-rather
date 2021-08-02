@@ -48,8 +48,8 @@ const Login = () => {
 
   return (
     <Segment>
-      <h1>
-        Welcome - Would You Rather?
+      <h1 style={{ textAlign: 'center' }}>
+        Welcome - Would You Rather? - Login Page
       </h1>
       <Image
         src="https://static.parade.com/wp-content/uploads/2019/12/Would-You-Rather_Questions.jpg"

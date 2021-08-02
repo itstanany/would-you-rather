@@ -11,7 +11,7 @@ import { store } from './store';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
+      <Router basename="/would-you-rather">
         <Container text>
           <App />
         </Container>
