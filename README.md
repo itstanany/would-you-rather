@@ -8,7 +8,7 @@ The app provides the user the ability to create questions with 2 possible answer
 
 A video walk through is available here: including installation and app overview.
 
-[![video installation and walk-through]()]()
+[![video installation and walk-through](./public/imgs/video-screenshot.png)](https://www.youtube.com/watch?v=d_4a_pia17c)
 
 ## Installation
 
