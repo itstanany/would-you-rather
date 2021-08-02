@@ -13,7 +13,7 @@ const Footer = () => (
       <a
         target="_blank"
         rel="noreferrer"
-        href="https://github.com/ahmedalima/"
+        href="https://github.com/ahmedalima/would-you-rather"
       >
         Here
       </a>
